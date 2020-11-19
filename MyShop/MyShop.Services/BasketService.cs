@@ -136,10 +136,10 @@ namespace MyShop.Services
             }
         }
 
-        public BasketSummaryViewModem GetBasketSummary(HttpContextBase httpContext)
+        public BasketSummaryViewModel GetBasketSummary(HttpContextBase httpContext)
         {
             Basket basket = GetBasket(httpContext, false);
-            BasketSummaryViewModem model = new BasketSummaryViewModem(0, 0);
+            BasketSummaryViewModel model = new BasketSummaryViewModel(0, 0);
 
             if (basket != null)
             {

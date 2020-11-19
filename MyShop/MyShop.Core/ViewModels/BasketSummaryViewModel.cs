@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace MyShop.Core.ViewModels
 {
-    public class BasketSummaryViewModem
+    public class BasketSummaryViewModel
     {
         public int BasketCount { get; set; }
         public decimal BasketTotal { get; set; }
 
-        public BasketSummaryViewModem()
+        public BasketSummaryViewModel()
         {
 
         }
 
-        public BasketSummaryViewModem(int basketCount, decimal basketTotal)
+        public BasketSummaryViewModel(int basketCount, decimal basketTotal)
         {
             this.BasketCount = basketCount;
             this.BasketTotal = basketTotal;
