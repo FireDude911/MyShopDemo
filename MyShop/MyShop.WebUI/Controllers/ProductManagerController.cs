@@ -1,13 +1,11 @@
-﻿using System;
+﻿using MyShop.Core.Contracts;
+using MyShop.Core.Models;
+using MyShop.Core.ViewModels;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using MyShop.Core.Models;
-using MyShop.DataAccess.InMemory;
-using MyShop.Core.ViewModels;
-using MyShop.Core.Contracts;
-using System.IO;
 
 namespace MyShop.WebUI.Controllers
 {
@@ -15,7 +13,7 @@ namespace MyShop.WebUI.Controllers
     {
 
         IRepository<Product> context;
-        IRepository<ProductCategory> productCategories; 
+        IRepository<ProductCategory> productCategories;
 
 
         public ProductManagerController(IRepository<Product> productContext, IRepository<ProductCategory> productCategoryContext)
@@ -48,10 +46,11 @@ namespace MyShop.WebUI.Controllers
             if (!ModelState.IsValid)
             {
                 return View(product);
-            } else
+            }
+            else
             {
 
-                if(file != null)
+                if (file != null)
                 {
                     product.Image = product.Id + Path.GetExtension(file.FileName);
                     file.SaveAs(Server.MapPath("//Content//ProductImages//") + product.Image);
@@ -93,7 +92,8 @@ namespace MyShop.WebUI.Controllers
             else
             {
 
-                if (!ModelState.IsValid) {
+                if (!ModelState.IsValid)
+                {
                     return View(product);
                 }
 
@@ -105,7 +105,7 @@ namespace MyShop.WebUI.Controllers
 
                 productToEdit.Category = product.Category;
                 productToEdit.Description = product.Description;
-                
+
                 productToEdit.Name = product.Name;
                 productToEdit.Price = product.Price;
 
