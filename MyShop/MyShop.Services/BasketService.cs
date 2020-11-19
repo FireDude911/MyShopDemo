@@ -101,7 +101,7 @@ namespace MyShop.Services
         {
             Basket basket = GetBasket(httpContext, true);
 
-            BasketItem item = basket.BasketItems.FirstOrDefault(i => i.ProductId == itemId);
+            BasketItem item = basket.BasketItems.FirstOrDefault(i => i.Id == itemId);
 
             if (item != null)
             {
